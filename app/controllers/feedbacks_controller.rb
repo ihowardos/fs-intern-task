@@ -3,7 +3,7 @@ class FeedbacksController < ApplicationController
   expose_decorated :feedbacks, -> { fetch_feedbacks }
 
   def index
-    authorize feedbacks
+    authorize feedback
   end
 
   def new
@@ -21,7 +21,7 @@ class FeedbacksController < ApplicationController
 
   private
     def fetch_feedbacks
-      feedbacks = Feedback.all
+      feedbacks = FeedbackQuery.new.newest_feedbacks
     end
 
     def feedback_params

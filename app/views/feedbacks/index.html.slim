@@ -1,0 +1,14 @@
+table class="unstripped"
+  thead
+    tr
+      th width="20%" Name
+      th width="20%" Email
+      th Text
+      th width="20%" Created at
+  tbody
+    - feedbacks.each do |feedback|
+      tr
+        td = feedback.name
+        td = feedback.email
+        td = feedback.text
+        td = feedback.created_at
