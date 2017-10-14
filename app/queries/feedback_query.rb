@@ -16,5 +16,9 @@ class FeedbackQuery
     def pagination(page)
       page(page).per(10)
     end
+
+    def search(search)
+      where("name ILIKE ? OR email ILIKE ?", "%#{search}%", "%#{search}%")
+    end
   end
 end

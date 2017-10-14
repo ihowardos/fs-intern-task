@@ -1,15 +1,27 @@
-table class="unstripped"
-  thead
-    tr
-      th width="20%" Name
-      th width="20%" Email
-      th Text
-      th width="20%" Created at
-  tbody
-    - feedbacks.each do |feedback|
-      tr
-        td = feedback.name
-        td = feedback.email
-        td = feedback.text
-        td = feedback.created_at
-= paginate feedbacks
+.feedbacks
+  .row
+    .medium-3.columns.float-right
+      .search
+        form action="#{feedbacks_path}" method="get"
+          .input-group
+            = text_field_tag :search, params[:search], placeholder:"Search..."
+            = submit_tag "Serach", name: nil, class:"button small"
+
+    .table
+      table class="unstripped"
+        thead
+          tr
+            th width="20%" Name
+            th width="20%" Email
+            th Text
+            th width="20%" Created at
+        tbody
+          - feedbacks.each do |feedback|
+            tr
+              td = feedback.name
+              td = feedback.email
+              td = feedback.text
+              td = feedback.created_at
+  .row
+    .medium-3.medium-centered.columns
+      = paginate feedbacks
