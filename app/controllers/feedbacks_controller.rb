@@ -2,11 +2,16 @@ class FeedbacksController < ApplicationController
   expose_decorated :feedback
   expose_decorated :feedbacks, -> { fetch_feedbacks }
 
+  def index
+    authorize feedbacks
+  end
+
   def new
     if current_user
       feedback.name = current_user.full_name
       feedback.email = current_user.email
     end
+    authorize feedback
   end
 
   def create
