@@ -22,6 +22,7 @@ class FeedbacksController < ApplicationController
   private
     def fetch_feedbacks
       feedbacks = FeedbackQuery.new.relation.newest_feedbacks.pagination(params[:page])
+      feedbacks = feedbacks.search(params[:search]) if params[:search]
     end
 
     def feedback_params
