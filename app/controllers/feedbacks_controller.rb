@@ -3,7 +3,8 @@ class FeedbacksController < ApplicationController
   expose_decorated :feedbacks, -> { fetch_feedbacks }
 
   def create
-
+    FeedbackMailer.feedback(feedback).deliver_now if feedback.save
+    respond_with(feedback)
   end
 
   private
@@ -12,6 +13,6 @@ class FeedbacksController < ApplicationController
     end
 
     def feedback_params
-      params.require(:feedbacks).permit(:name, :email, :text)
+      params.require(:feedback).permit(:name, :email, :text)
     end
 end
