@@ -1,0 +1,10 @@
+= simple_form_for feedback do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name, as: :string
+    = f.input :email, as: :email
+    = f.input :text, as: :text
+
+  .form-actions
+    = f.button :submit
