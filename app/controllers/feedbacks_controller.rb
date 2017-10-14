@@ -4,7 +4,7 @@ class FeedbacksController < ApplicationController
 
   def create
     FeedbackMailer.feedback(feedback).deliver_now if feedback.save
-    respond_with(feedbacks)
+    respond_with(feedback)
   end
 
   private

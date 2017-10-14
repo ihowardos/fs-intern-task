@@ -5,7 +5,6 @@ class FeedbackMailer < ApplicationMailer
     mail(
       to: "admin@example.com",
       from: feedback.email,
-      name: feedback.name,
-      subject: feedback.text)
+      subject: "Feedback fs-intern-task")
   end
 end
