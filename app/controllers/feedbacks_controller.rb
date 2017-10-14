@@ -21,7 +21,7 @@ class FeedbacksController < ApplicationController
 
   private
     def fetch_feedbacks
-      feedbacks = FeedbackQuery.new.newest_feedbacks
+      feedbacks = FeedbackQuery.new.relation.newest_feedbacks.pagination(params[:page])
     end
 
     def feedback_params
