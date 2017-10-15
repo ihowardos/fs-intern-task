@@ -1,10 +1,11 @@
-= simple_form_for feedback do |f|
-  = f.error_notification
+.feedback-form
+  = simple_form_for feedback do |f|
+    = f.error_notification
 
-  .form-inputs
-    = f.input :name, as: :string
-    = f.input :email, as: :email
-    = f.input :text, as: :text
+    .form-inputs
+      = f.input :name, as: :string, label: "Full name", placeholder: "Jack Howard"
+      = f.input :email, as: :email, placeholder: "jackhoward@example.com"
+      = f.input :text, as: :text, label: "Your feedback", placeholder: "I'm found a bug..."
 
-  .form-actions
-    = f.button :submit
+    .form-actions.float-right
+      = f.button :submit, class:"button tiny"

@@ -21,4 +21,5 @@ en:
         alert: '%{resource_name} could not be destroyed.'
     feedbacks:
       create:
-        notice: "Feedback was successfully send!"
+        notice: "Feedback was successfully sent!"
+        alert: "Feedback could not be sent!"
